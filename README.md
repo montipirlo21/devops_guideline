@@ -5,10 +5,6 @@
 * Storyline: Building a control panel of an industry
 
 
-1. # Hammer Service
+1. # Hammer Service C#
 
 * Storyline: A big hammer. 
-
-We can hammer light, medium and hard. 
-
-We can ask about the position and the status.
