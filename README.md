@@ -5,8 +5,10 @@
 * Storyline: Building a control panel of an industry
 
 
-# DAY 1 - First Microservice creation C# - Hammer Service
+1. # Hammer Service
 
 * Storyline: A big hammer. 
+
 We can hammer light, medium and hard. 
+
 We can ask about the position and the status.
