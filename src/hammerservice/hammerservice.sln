@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hammerservice", "src\hammerservice.csproj", "{C884618E-2937-456E-8784-500B3622A8E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hammerservice", "hammerservice\hammerservice.csproj", "{C884618E-2937-456E-8784-500B3622A8E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hammerservice.tests", "hammerservice.tests\hammerservice.tests.csproj", "{0A1D28FA-141D-448C-8F12-59DD4FEC7385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{C884618E-2937-456E-8784-500B3622A8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C884618E-2937-456E-8784-500B3622A8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C884618E-2937-456E-8784-500B3622A8E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A1D28FA-141D-448C-8F12-59DD4FEC7385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A1D28FA-141D-448C-8F12-59DD4FEC7385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A1D28FA-141D-448C-8F12-59DD4FEC7385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A1D28FA-141D-448C-8F12-59DD4FEC7385}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
