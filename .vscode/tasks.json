@@ -44,7 +44,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "devopsguideline:dev",
+                "tag": "hammerservice:dev",
                 "target": "base",
                 "dockerfile": "${workspaceFolder}/src/hammerservice/hammerservice/Dockerfile",
                 "context": "${workspaceFolder}",
@@ -61,7 +61,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "devopsguideline:latest",
+                "tag": "hammerservice:latest",
                 "dockerfile": "${workspaceFolder}/src/hammerservice/hammerservice/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
