@@ -1,0 +1,36 @@
+version: '3'
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'gitlab.local.com'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.local.com'
+    ports:
+      - '801:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+      - 'C:\Gitlab\config:/etc/gitlab'
+      - 'C:\Gitlab\logs:/var/log/gitlab'
+      - 'C:\Gitlab\data:/var/opt/gitlab'
+    networks:
+      default:
+        aliases:
+          - 'gitlab.local.com'
+
+  gitlab-runner:
+    image: 'gitlab/gitlab-runner:latest'
+    depends_on:
+      - 'gitlab'
+    restart: always
+    volumes:
+      - 'C:\Gitlab\gitlab-runner-config:/etc/gitlab-runner'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    networks:
+      - 'default'
+
+networks:
+  default:
+    driver: 'bridge'
