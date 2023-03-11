@@ -9,7 +9,7 @@ stages:
   services:
     - name: docker:dind
 
-build:tagProd:
+build:
   <<: *dind_template
   # only: 
   #   variables:
@@ -32,3 +32,4 @@ build:tagProd:
   #   - docker push "$image:${CI_COMMIT_TAG}" 
   script:
     - docker --version
+    - docker build -t "prova/prova" -f ./src/cutterservice/Dockerfile . 
