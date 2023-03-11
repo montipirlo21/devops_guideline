@@ -18,3 +18,7 @@ Storyline: A big cutter.
 # Gitlab on Docker
 Installation guide for gitlab docker on the relative [section](/gitlab/README.md)
 
+
+
+# Kubernates manifest
+Kubernates manifest here [section](/release/README.md)
