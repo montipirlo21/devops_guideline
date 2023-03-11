@@ -6,6 +6,5 @@ stages:
 
 build-code-job:
   stage: build
-  image: docker:latest
   script:
     - docker build -t example.com/example-image:latest ./src/cutterservice
