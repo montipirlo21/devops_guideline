@@ -26,8 +26,7 @@ build_hammerservice:
       - src/hammerservice/**/*  
   script:
     - docker --version
-    - docker build -t hammerservice:latest -f ./src/hammerservice/hammerservice/Dockerfile ./src/hammerservice/hammerservice
-
+    - docker build -t hammerservice:latest -f ./src/hammerservice/hammerservice/Dockerfile .
 
 build_cutterservice:
   <<: *dind_template
