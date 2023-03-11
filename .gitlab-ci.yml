@@ -1,7 +1,11 @@
+services:
+  - docker:dind
+
 stages:
   - build
 
 build-code-job:
   stage: build
+  image: docker:latest
   script:
-    - echo "Ho fatto il build:"
+    - docker build -t example.com/example-image:latest ./src/cutterservice
