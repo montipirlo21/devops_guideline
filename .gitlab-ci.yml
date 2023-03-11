@@ -44,4 +44,4 @@ build:
   #   - docker push "$image:${CI_COMMIT_TAG}" 
   script:
     - docker --version
-    - docker build -t cutterservice:latest -f ./src/cutterservice/Dockerfile . 
+    - docker build -t hammerservice:latest -f ./src/hammerservice/hammerservice/Dockerfile . 
