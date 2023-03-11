@@ -28,8 +28,8 @@ build_hammerservice:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
     - docker --version
-    - docker build -t "$CI_REGISTRY_IMAGE_HAMMERSERVICE:$CI_COMMIT_REF_SLUG" -f ./src/hammerservice/hammerservice/Dockerfile .
-    - docker push "$CI_REGISTRY_IMAGE_HAMMERSERVICE:$CI_COMMIT_REF_SLUG"
+    - docker build -t "$CI_REGISTRY_IMAGE_HAMMERSERVICE:$CI_COMMIT_SHORT_SHA" -f ./src/hammerservice/hammerservice/Dockerfile .
+    - docker push "$CI_REGISTRY_IMAGE_HAMMERSERVICE:$CI_COMMIT_SHORT_SHA"
 
 build_cutterservice:
   <<: *dind_template
@@ -40,5 +40,5 @@ build_cutterservice:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
     - docker --version
-    - docker build -t "$CI_REGISTRY_IMAGE_CUTTERSERVICE:$CI_COMMIT_REF_SLUG" -f ./src/cutterservice/Dockerfile ./src/cutterservice
-    - docker push "$CI_REGISTRY_IMAGE_CUTTERSERVICE:$CI_COMMIT_REF_SLUG"
+    - docker build -t "$CI_REGISTRY_IMAGE_CUTTERSERVICE:$CI_COMMIT_SHORT_SHA" -f ./src/cutterservice/Dockerfile ./src/cutterservice
+    - docker push "$CI_REGISTRY_IMAGE_CUTTERSERVICE:$CI_COMMIT_SHORT_SHA"
