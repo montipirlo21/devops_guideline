@@ -26,7 +26,7 @@ build_hammerservice:
       - src/hammerservice/**/*  
   script:
     - docker --version
-    - docker build -t hammerservice:latest -f ./src/hammerservice/hammerservice/Dockerfile . 
+    - docker build -t hammerservice:latest -f ./src/hammerservice/hammerservice/Dockerfile ./src/hammerservice/hammerservice
 
 
 build_cutterservice:
@@ -36,4 +36,4 @@ build_cutterservice:
       - src/cutterservice/**/*  
   script:
     - docker --version
-    - docker build -t cutterservice:latest -f ./src/cutterservice/Dockerfile . 
+    - docker build -t cutterservice:latest -f ./src/cutterservice/Dockerfile ./src/cutterservice
