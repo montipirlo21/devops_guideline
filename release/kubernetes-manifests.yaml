@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: cutterservice
-        image:  montipirlo/cutterservice:latest
+        image:  montipirlo/cutterservice:0.1
         resources:
           limits:
             memory: "128Mi"
@@ -33,6 +33,7 @@ spec:
   - name: grpc
     port: 50051
     targetPort: 50051
+    nodePort: 30001
 --- 
 apiVersion: apps/v1
 kind: Deployment
@@ -49,7 +50,7 @@ spec:
     spec:
       containers:
       - name: hammerservice
-        image:  montipirlo/hammerservice:latest
+        image:  montipirlo/hammerservice:0.1
         resources:
           limits:
             memory: "128Mi"
@@ -69,4 +70,5 @@ spec:
   - name: grpc
     port: 5171
     targetPort: 5171
+    nodePort: 30002
 
