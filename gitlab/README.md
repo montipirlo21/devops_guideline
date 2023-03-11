@@ -50,3 +50,9 @@ docker run --rm -it -v C:/Gitlab/gitlab-runner-config:/etc/gitlab-runner gitlab/
 
 compilo la registrazione interattiva come da guida
 
+Errore cannot connect to the Docker daemon at tcp://docker:2375.
+Aggiunto variabili nel .gitlab-ci.yml
+modificato config.toml del runner con:
+
+image = "docker:latest"
+privileged = true
