@@ -14,7 +14,13 @@ test_hammerservice:
   script:   
     - dotnet test ./src/hammerservice
 
+.goland: &goland_template
+  image: golang
+  tags:
+    - docker
+
 test_cutterservice:
+  <<: *goland_template
   stage: test
   script:
     - go install gotest.tools/gotestsum@latest
