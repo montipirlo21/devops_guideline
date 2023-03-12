@@ -3,21 +3,16 @@ stages:
   - build
   - deploy
 
-#################### TESTING  #####################
-
 .dotnet: &dotnet_template
   image: mcr.microsoft.com/dotnet/sdk:7.0
   tags:
     - docker
 
-test:
+test_hammerservice:
   <<: *dotnet_template
-  stage: 
-    - test
+  stage: test
   script:   
     - dotnet test ./src/hammerservice
-
-#################### BUILD/DEPLOY  #####################
 
 .dind: &dind_template
   image: docker:git
@@ -34,8 +29,7 @@ test:
 
 build_hammerservice:
   <<: *dind_template
-  stage:
-    - build
+  stage: build
   only: 
     changes:
       - src/hammerservice/**/*  
