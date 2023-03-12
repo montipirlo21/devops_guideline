@@ -13,7 +13,7 @@ stages:
 test:
   <<: *dotnet_template
   stage: 
-    - test   
+    - test
   script:   
     - dotnet test ./src/hammerservice
 
