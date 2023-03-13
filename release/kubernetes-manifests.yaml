@@ -97,13 +97,6 @@ spec:
             name: hammerservice
             port:
               number: 5171
-      # - path: /
-      #   pathType: Prefix
-      #   backend:
-      #     service:
-      #       name: hammerservice
-      #       port:
-      #         number: 5171
   tls:
   # This secret must exist beforehand
   # The cert must also contain the subj-name grpctest.dev.mydomain.com
