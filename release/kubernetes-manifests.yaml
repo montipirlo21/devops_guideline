@@ -32,8 +32,6 @@ spec:
   ports:
   - name: grpc
     port: 50051
-    targetPort: 50051
-    nodePort: 30001
 --- 
 apiVersion: apps/v1
 kind: Deployment
@@ -69,6 +67,49 @@ spec:
   ports:
   - name: grpc
     port: 5171
-    targetPort: 5171
-    nodePort: 30002
+--- 
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: example-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: grpctest.dev.com
+    http:
+      paths:
+      - path: /cutterservice(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: cutterservice
+            port:
+              number: 50051
+      - path: /hammerservice(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: hammerservice
+            port:
+              number: 5171
+      # - path: /
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: hammerservice
+      #       port:
+      #         number: 5171
+  tls:
+  # This secret must exist beforehand
+  # The cert must also contain the subj-name grpctest.dev.mydomain.com
+  # https://github.com/kubernetes/ingress-nginx/blob/master/docs/examples/PREREQUISITES.md#tls-certificates
+  - secretName: grpc-secret
+    hosts:
+      - grpctest.dev.com
+
 
