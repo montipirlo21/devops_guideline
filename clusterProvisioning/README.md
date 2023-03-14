@@ -28,5 +28,14 @@ flux check --pre
 set GITLAB_TOKEN=glpat-HcPxdRMmDkYXwpZLu5au
 flux bootstrap gitlab --owner=davide.monticelli --repository=fleet-infra  --branch=main --path=./clusters/my-cluster  --hostname=gitlab.local.com --token-auth --personal --ca-file="../certs/rootCA/rootCA.crt"
 
-flux create source git micro-apps --url=https://gitlab.local.com/davide.monticelli/devops_guideline --branch=main --interval=30s --export > micro-apps-source.yaml
+flux create source git micro-apps --url=https://gitlab.local.com/davide.monticelli/devops_guideline --branch=22-flux-installation --interval=30s --ca-file="../certs/rootCA/rootCA.crt" --export  > micro-apps-source2.yaml 
 flux create kustomization micro-apps --target-namespace=default --source=micro-apps --path="./kustomize" --prune=true --interval=1m --export > micro-apps-kustomization.yaml
+
+
+
+# SHORTLIST
+kind create cluster --config=cluster-config.yaml
+flux bootstrap gitlab --owner=davide.monticelli --repository=fleet-infra  --branch=main --path=./clusters/my-cluster  --hostname=gitlab.local.com --token-auth --personal --ca-file="../certs/rootCA/rootCA.crt"
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
+kubectl create secret tls grpc-secret --key ../certs/wildcard/wildcard.dev.com.key --cert ../certs/wildcard/wildcard.dev.com.crt
