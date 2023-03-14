@@ -9,7 +9,7 @@ c:/gitlab/logs
 
 ## Installazione gitlab comandi 
 
-docker run --detach --hostname gitlab.local.com --publish 443:443 --publish 80:80 --publish 22:22 --name gitlab --restart always  --volume C:/Gitlab/config:/etc/gitlab  --volume C:/Gitlab/logs:/var/log/gitlab  --volume C:/Gitlab/data:/var/opt/gitlab  --shm-size 256m  gitlab/gitlab-ee:latest
+docker run --detach --hostname gitlab.local.com --publish 443:443 --publish 80:80 --publish 22:22 --name gitlab --restart always  --volume C:/Gitlab/config:/etc/gitlab  --volume C:/Gitlab/logs:/var/log/gitlab  --volume C:/Gitlab/data:/var/opt/gitlab  --shm-size 256m -e GITLAB_SKIP_UNMIGRATED_DATA_CHECK=true gitlab/gitlab-ee:latest 
 
 ## Installazione certificati gitlab
 
@@ -56,3 +56,6 @@ modificato config.toml del runner con:
 
 image = "docker:latest"
 privileged = true
+
+
+-e GITLAB_SKIP_UNMIGRATED_DATA_CHECK=true
