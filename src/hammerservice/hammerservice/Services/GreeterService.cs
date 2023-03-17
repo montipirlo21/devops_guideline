@@ -13,7 +13,7 @@ public class GreeterService : Greeter.GreeterBase
 
     public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
     {
-        Console.WriteLine($"Ho ricevuto questo nome {request.Name}");
+        Console.WriteLine($"V2:Ho ricevuto questo nome {request.Name}");
 
         return Task.FromResult(new HelloReply
         {
