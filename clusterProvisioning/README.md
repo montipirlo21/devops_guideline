@@ -33,6 +33,8 @@ flux create kustomization micro-apps --target-namespace=default --source=micro-a
 
 
 
+
+
 # SHORTLIST staging
 kind create cluster --config=cluster-config-staging.yaml
 
@@ -52,4 +54,4 @@ kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.
 kubectl create secret tls grpc-secret --key ../certs/wildcard/wildcard.dev.com.key --cert ../certs/wildcard/wildcard.dev.com.crt
 
 set GITLAB_TOKEN=glpat-HcPxdRMmDkYXwpZLu5au
-flux bootstrap gitlab --owner=davide.monticelli --repository=fleet-infra  --branch=27-create-two-cluster-staging-and-production-with-kind-and-flux --path=./clusters/production  --hostname=gitlab.local.com --token-auth --personal --ca-file="../certs/rootCA/rootCA.crt" --context=kind-production
+flux bootstrap gitlab --owner=davide.monticelli --repository=fleet-infra  --branch=main --path=./clusters/production  --hostname=gitlab.local.com --token-auth --personal --ca-file="../certs/rootCA/rootCA.crt" --context=kind-production
