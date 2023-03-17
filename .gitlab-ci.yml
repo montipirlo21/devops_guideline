@@ -49,5 +49,23 @@ build_hammerservice:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
+<<<<<<< Updated upstream
     - docker build -t "$CI_REGISTRY_IMAGE_HAMMERSERVICE:0.1" -f ./src/hammerservice/hammerservice/Dockerfile .
     - docker push "$CI_REGISTRY_IMAGE_HAMMERSERVICE:0.1"
+=======
+    - docker build -t "$CI_REGISTRY_IMAGE_HAMMERSERVICE:0.2" -f ./src/hammerservice/hammerservice/Dockerfile .
+    - docker push "$CI_REGISTRY_IMAGE_HAMMERSERVICE:0.2"
+
+build_cutterservice:
+  <<: *dind_template
+  stage: build
+  only: 
+    changes:
+      - src/cutterservice/**/*  
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker --version
+    - docker build -t "$CI_REGISTRY_IMAGE_CUTTERSERVICE:0.2" -f ./src/cutterservice/Dockerfile ./src/cutterservice
+    - docker push "$CI_REGISTRY_IMAGE_CUTTERSERVICE:0.2"
+>>>>>>> Stashed changes

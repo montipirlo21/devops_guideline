@@ -33,12 +33,23 @@ flux create kustomization micro-apps --target-namespace=default --source=micro-a
 
 
 
-# SHORTLIST
-kind create cluster --config=cluster-config.yaml
+# SHORTLIST staging
+kind create cluster --config=cluster-config-staging.yaml
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
 kubectl create secret tls grpc-secret --key ../certs/wildcard/wildcard.dev.com.key --cert ../certs/wildcard/wildcard.dev.com.crt
 
 set GITLAB_TOKEN=glpat-HcPxdRMmDkYXwpZLu5au
-flux bootstrap gitlab --owner=davide.monticelli --repository=fleet-infra  --branch=main --path=./clusters/my-cluster  --hostname=gitlab.local.com --token-auth --personal --ca-file="../certs/rootCA/rootCA.crt"
+flux bootstrap gitlab --owner=davide.monticelli --repository=fleet-infra  --branch=main --path=./clusters/staging  --hostname=gitlab.local.com --token-auth --personal --ca-file="../certs/rootCA/rootCA.crt" --context=kind-staging
+
+
+# SHORTLIST production
+kind create cluster --config=cluster-config-production.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl wait --namespace ingress-nginx --for=condition=ready pod --selector=app.kubernetes.io/component=controller --timeout=90s
+kubectl create secret tls grpc-secret --key ../certs/wildcard/wildcard.dev.com.key --cert ../certs/wildcard/wildcard.dev.com.crt
+
+set GITLAB_TOKEN=glpat-HcPxdRMmDkYXwpZLu5au
+flux bootstrap gitlab --owner=davide.monticelli --repository=fleet-infra  --branch=27-create-two-cluster-staging-and-production-with-kind-and-flux --path=./clusters/production  --hostname=gitlab.local.com --token-auth --personal --ca-file="../certs/rootCA/rootCA.crt" --context=kind-production
