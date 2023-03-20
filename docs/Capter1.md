@@ -8,22 +8,29 @@ Stop talking, start setting up!
 
 Install VS code 
 
+
 ## C#
 
 C# environment:
+
 [Net core SDK 7.0](https://dotnet.microsoft.com/en-us/download) check on the command line if the command dotnet work
+
 ["C#" Extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 TESTING:
+
 Navigate to the folder \src\hammerservice then run "dotnet build" and check if its running
 
 ## GO 
 
 GO environment:
+
 [Go installation](https://go.dev/)
+
 [VScode Go Extension](https://marketplace.visualstudio.com/items?itemName=golang.go)
 
 TESTING 
+
 Navigate to the folder \src\cutterservice then run "go build" and check if its running "go build .\main.go"
 
 
