@@ -1,6 +1,9 @@
 # DEVOPS_GUIDELINE
 
-**Devops_guidelin** is a project about create a complete microservice application hosted on kubernates with CI/CD integration.
+**Devops_guidelin** it's a journey about create a real complete microservice application hosted on kubernates with CI/CD integration, using tools like Kind, DockerDesktop, Gitlab, Dockerhub, Flux and many more.
+
+It must be a learning journey **affordable for anyone** so everything must **run on a windows computer or using free tier of web service** like github o dockerhub
+
 
 Storyline: Building a control panel of an industry
 
