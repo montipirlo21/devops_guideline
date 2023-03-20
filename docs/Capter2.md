@@ -1,3 +1,6 @@
+
+
+
 # GITLAB ON DOCKER
 
 Creazione delle cartelle locali su cui fare l'attach dei volumi
