@@ -30,7 +30,7 @@ GO environment:
 
 TESTING 
 
-Navigate to the folder \src\cutterservice then run "go build" and check if its running "go build .\main.go"
+Navigate to the folder \src\cutterservice then run "go build .\main.go" and check if it builds
 
 
 
