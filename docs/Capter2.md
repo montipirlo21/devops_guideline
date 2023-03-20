@@ -1,40 +1,41 @@
 # Gitlab on Docker # 
 
 ## DockerDesktop installation
-Download and install Docker Desktop application from [Docker-Desktop](https://www.docker.com/products/docker-desktop/)
+Download and install Docker Desktop application from [Docker-Desktop](https://www.docker.com/products/docker-desktop/)<br>
 
 ## GITLAB ON DOCKER ##
 
-Create local folder to save "persistent data" of your gitlab docker installation.
-A docker as a transient state so if you don't want to redo all procedure every time you destroy the container, save the data!
-
-I personally choose these destinations:
+Create local folder to save "persistent data" of your gitlab docker installation.<br>
+A docker as a transient state so if you don't want to redo all procedure every time you destroy the container, save the data! <br>
+I personally choose these destinations:<br>
 
 ```
-
 c:/gitlab/config
-
 c:/gitlab/data
-
 c:/gitlab/gitlab-runner-config
-
 c:/gitlab/logs
-
 ```
 
 ## Run Gitlab on docker
 
-Run the gitlab on the docker engine.
-It takes a while to start up based on your computer.
+Run the gitlab on the docker engine.<br>
+It takes a while to start up based on your computer.<br>
+
+Check the `hostname` parameter: it has to match your certificate. <br>
+I choose the name `gitlab.local.com`.
 
 ```
 docker run --detach --hostname gitlab.local.com --publish 443:443 --publish 80:80 --publish 22:22 --name gitlab --restart always  --volume C:/Gitlab/config:/etc/gitlab  --volume C:/Gitlab/logs:/var/log/gitlab  --volume C:/Gitlab/data:/var/opt/gitlab  --shm-size 256m -e GITLAB_SKIP_UNMIGRATED_DATA_CHECK=true gitlab/gitlab-ee:latest 
 ```
 
+## Add gitlab certificates
 
-## Installazione certificati gitlab
 
-Aggiunto url gitlab.local.com nel file host di windows.
+
+
+Git clients are 
+
+Aggiunto url gitlab.local.com nel file host di windows.<br>
 
 aggiunti ca e certificato crt nel file ca-bundle.crt in 
 C:\Program Files\Git\mingw64\ssl\certs
