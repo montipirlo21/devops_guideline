@@ -12,6 +12,8 @@ By this panel a user can pilot different kind of machines and receives notificat
 
 # START THE JOURNEY #
 
+Clone the repository then start your journey
+
 [**Capter1**](/docs/Capter1.md): Staring Up developing environment
 Download and install VSCODE, configure C# environment and go environment
 
@@ -19,7 +21,7 @@ Download and install VSCODE, configure C# environment and go environment
 It's a tought procedure. Some complexity caused by self-signed certificate 
 
 [**Capter2**](/docs/Capter3.md): Gitlab runners
-It's a tought procedure
+It's not so simple but...
 
 <!-- # Kubernates manifest
 Kubernates manifest here [section](/release/README.md) -->

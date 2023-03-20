@@ -6,16 +6,15 @@ Stop talking, start setting up!
 
 ## VSCODE
 
-Install VS code 
-
+Install VSCode from [this Guide](https://code.visualstudio.com/docs/setup/windows)  
 
 ## C#
 
 C# environment:
 
-[Net core SDK 7.0](https://dotnet.microsoft.com/en-us/download) check on the command line if the command dotnet work
+[Net core SDK 7.0](https://dotnet.microsoft.com/en-us/download): Install SDK and check on the command line if the command "dotnet" work
 
-["C#" Extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+["C#" Extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp):  Install C# extension on VSCODE
 
 TESTING:
 
@@ -25,9 +24,9 @@ Navigate to the folder \src\hammerservice then run "dotnet build" and check if i
 
 GO environment:
 
-[Go installation](https://go.dev/)
+[Go installation](https://go.dev/): Install GO environment 
 
-[VScode Go Extension](https://marketplace.visualstudio.com/items?itemName=golang.go)
+[VScode Go Extension](https://marketplace.visualstudio.com/items?itemName=golang.go):  Install GO extensions 
 
 TESTING 
 
