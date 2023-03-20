@@ -7,15 +7,6 @@ It must be a learning journey **affordable for anyone** so everything must **run
 Storyline: Building a control panel of an industry. The control panel must have a web interface with authentication ( user and psw ).
 By this panel a user can pilot different kind of machines and receives notification when the works are done.
 
-# Hammer Service C# 
-
-Storyline: A big hammer.
-
-# Cutter Service C
-
-Storyline: A big cutter.
-
-
 # START THE JOURNEY #
 
 **Capter1** : [Staring Up](/docs/Capter1.md)
