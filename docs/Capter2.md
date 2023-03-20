@@ -1,16 +1,21 @@
+# Gitlab on Docker # 
 
+## DockerDesktop installation
+Download and install Docker Desktop application from [Docker-Desktop](https://www.docker.com/products/docker-desktop/)
 
+## GITLAB ON DOCKER ##
 
-# GITLAB ON DOCKER
+Create local folder to save "persistent data" of your gitlab docker installation.
+A docker as a transient state so if you don't want to redo all procedure every time you destroy the container, save the data!
 
-Creazione delle cartelle locali su cui fare l'attach dei volumi
+I personally choose these destinations:
+
 c:/gitlab/config
 c:/gitlab/data
 c:/gitlab/gitlab-runner-config
 c:/gitlab/logs
 
-
-## Installazione gitlab comandi 
+## Run Gitlab on docker
 
 docker run --detach --hostname gitlab.local.com --publish 443:443 --publish 80:80 --publish 22:22 --name gitlab --restart always  --volume C:/Gitlab/config:/etc/gitlab  --volume C:/Gitlab/logs:/var/log/gitlab  --volume C:/Gitlab/data:/var/opt/gitlab  --shm-size 256m -e GITLAB_SKIP_UNMIGRATED_DATA_CHECK=true gitlab/gitlab-ee:latest 
 
@@ -40,25 +45,3 @@ nginx['redirect_http_to_https'] = true
 gitlab-ctl reconfigure
 gitlab-ctl restart
 
-
-## Installazione del runner
-
-Inserito in C:/Gitlab/gitlab-runner-config/certs il crt e pem di gitlab.local.com
-
-https://docs.gitlab.com/runner/install/docker.html
-docker run -d --name gitlab-runner --restart always -v C:/Gitlab/gitlab-runner-config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock  gitlab/gitlab-runner:latest
-
-https://docs.gitlab.com/runner/register/index.html#docker
-docker run --rm -it -v C:/Gitlab/gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner register
-
-compilo la registrazione interattiva come da guida
-
-Errore cannot connect to the Docker daemon at tcp://docker:2375.
-Aggiunto variabili nel .gitlab-ci.yml
-modificato config.toml del runner con:
-
-image = "docker:latest"
-privileged = true
-
-
--e GITLAB_SKIP_UNMIGRATED_DATA_CHECK=true
